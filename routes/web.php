@@ -15,13 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * All routes for the websites crud system
+ */
 Route::get('/websites', 'WebsitesController@getWebsites')->name('websites');
 Route::get('/websites/{id}/view', 'WebsitesController@getWebsite');
 Route::get('/websites/createPage', 'WebsitesController@storePageWebsites');
 Route::post('/websites/store', 'WebsitesController@storeWebsites');
 Route::get('/websites/{id}/updatePage', 'WebsitesController@updatePageWebsites');
 Route::put('/websites/{id}/update', 'WebsitesController@updateWebsites');
-
+Route::get('/websites/{id}/delete', 'WebsitesController@deleteWebsites');
+/**
+ * End of all website routes
+ */
 
 Auth::routes();
 

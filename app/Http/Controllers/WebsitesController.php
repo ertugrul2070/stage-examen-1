@@ -20,7 +20,7 @@ class WebsitesController extends Controller
 
         $websites = Website::all();
 
-        return view('websites.overview', compact('websites'));
+        return view('admin.websites.overview', compact('websites'));
     }
     public function getWebsite($id)
     {
@@ -30,7 +30,7 @@ class WebsitesController extends Controller
 
         $website = Website::find($id);
 
-        return view('websites.view', compact('website'));
+        return view('admin.websites.view', compact('website'));
     }
 
     public function storePageWebsites()
@@ -39,7 +39,7 @@ class WebsitesController extends Controller
         /**
          * Collecting all User data and sending it to the create page
          */
-        return view('websites.create', compact('users'));
+        return view('admin.websites.create', compact('users'));
     }
 
     public function storeWebsites(Request $request)
@@ -58,14 +58,21 @@ class WebsitesController extends Controller
        $website = Website::find($id);
        $users = User::all();
 
-        return view('websites.update', compact('website', 'users'));
+        return view('admin.websites.update', compact('website', 'users'));
     }
 
-    public function updateWebsites(Request $request)
+    public function updateWebsites($id, Request $request)
     {
-        $requestData = $request->except('_token', 'create');
-        Website::insert($requestData);
+        $requestData = $request->except('_method','_token', 'update');
+        Website::whereId($id)->update($requestData);
 
         return redirect()->route('websites')->with('message', 'Succesfully saved');
+    }
+
+    public function deleteWebsites($id)
+    {
+        Website::destroy($id);
+
+        return redirect()->route('websites')->with('message', 'Succesfully deleted');
     }
 }

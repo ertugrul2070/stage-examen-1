@@ -1,6 +1,7 @@
 @include('layout.app')
 <!-- Form create -->
-<form class="text-center border border-light p-5" name="create" method="post" action="{{url('/websites/store')}}" >
+<form class="text-center border border-light p-5" name="update" method="post" action="{{url('/websites/'.$website->id.'/update')}}" >
+    {{ method_field('PUT') }}
     {{ csrf_field() }}
 
     <p class="h4 mb-4">Update website</p>
@@ -26,17 +27,17 @@
     <select id="websiteActive" class="form-control mb-4" name="active">
         @if($website->active === 1)
             <option selected value="{{$website->active}}">{{"Yes"}}</option>
-            <option value="1">{{(__('No'))}}</option>
+            <option value="0">{{(__('No'))}}</option>
         @else
             <option selected value="{{$website->active}}">{{"No"}}</option>
-            <option value="0">{{__('Yes')}}</option>
+            <option value="1">{{__('Yes')}}</option>
         @endif
     </select>
 
-    <!-- Create button -->
-    <a href="{{url('/websites/update')}}">
-        <button class="btn btn-info btn-block my-4" type="submit" name="create">Create</button>
+    <!-- Update button -->
+    <a href="{{url('/websites/'.$website->id.'/update')}}">
+        <button class="btn btn-info btn-block my-4" type="submit" name="update">Update</button>
     </a>
 
 </form>
-<!-- End form create->
+<!-- End form update->

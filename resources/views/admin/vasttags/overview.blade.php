@@ -5,6 +5,9 @@
     </div>
 @endif
 <div class="col-lg-6">
+    <a href="{{url('/')}}">
+        <button class="btn btn-success">Back</button>
+    </a>
     <a href="{{url('websites/createPage')}}">
         <button class="btn btn-primary">Create</button>
     </a>
@@ -48,10 +51,22 @@
             </td>
             <td>
                 <a href="{{url('websites/'.$website->id.'/delete')}}">
-                <button value="{{$website->id}}" class="btn btn-danger">Delete</button>
+                <button value="{{$website->id}}" id="delete" name="{{$website->name}}" onclick="ConfirmDelete()" class="btn btn-danger">Delete</button>
                 </a>
             </td>
         </tr>
     @endforeach
     </tbody>
 </table>
+
+<script type="text/javascript">
+    function ConfirmDelete()
+    {
+        var webName = document.getElementById('delete').name;
+        var x = confirm("Are you sure you want to delete " + webName+"?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+</script>
