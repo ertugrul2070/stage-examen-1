@@ -15,5 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/websites', 'WebsiteController@getWebsite');
+Route::get('/websites', 'WebsitesController@getWebsites')->name('websites');
+Route::get('/websites/{id}/view', 'WebsitesController@getWebsite');
+Route::get('/websites/createPage', 'WebsitesController@storePageWebsites');
+Route::post('/websites/store', 'WebsitesController@storeWebsites');
+Route::get('/websites/{id}/updatePage', 'WebsitesController@updatePageWebsites');
+Route::put('/websites/{id}/update', 'WebsitesController@updateWebsites');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

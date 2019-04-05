@@ -5,8 +5,8 @@
     </div>
 @endif
 <div class="col-lg-6">
-    <a href="{{url('websites/createPage')}}">
-        <button class="btn btn-primary">Create</button>
+    <a href="{{url('/websites')}}">
+        <button class="btn btn-success">Back</button>
     </a>
 </div>
 <table class="table">
@@ -17,14 +17,12 @@
         <th scope="col">url</th>
         <th scope="col">User</th>
         <th scope="col">active</th>
-        <th scope="col">View</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
     <!--Retrive all the data and show data in table-->
-    @foreach($websites as $website)
         <tr>
             <th scope="row">{{$website->id}}</th>
             <td>{{$website->name}}</td>
@@ -37,21 +35,15 @@
                 <td>{{__('No')}}</td>
                 @endif
             <td>
-                <a href="{{url('websites/'.$website->id.'/view')}}">
-                <button value="{{$website->id}}" class="btn btn-info">View</button>
-                </a>
-            </td>
-            <td>
                 <a href="{{url('websites/'.$website->id.'/updatePage')}}">
-                <button value="{{$website->id}}" class="btn btn-warning">Update</button>
+                    <button value="{{$website->id}}" class="btn btn-warning">Update</button>
                 </a>
             </td>
             <td>
                 <a href="{{url('websites/'.$website->id.'/delete')}}">
-                <button value="{{$website->id}}" class="btn btn-danger">Delete</button>
+                    <button value="{{$website->id}}" class="btn btn-danger">Delete</button>
                 </a>
             </td>
         </tr>
-    @endforeach
     </tbody>
 </table>
