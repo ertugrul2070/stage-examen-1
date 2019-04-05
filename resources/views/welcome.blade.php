@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{url('websites')}}">Websites</a>
-                    <a href="https://laravel.com/docs">Zones</a>
-                    <a href="https://laravel.com/docs">Vasttags</a>
+                    <a href="{{url('/websites')}}">Websites</a>
+                    <a href="{{url('/zones')}}">Zones</a>
+                    <a href="{{url('/vasttags')}}">Vasttags</a>
                 </div>
             </div>
         </div>
