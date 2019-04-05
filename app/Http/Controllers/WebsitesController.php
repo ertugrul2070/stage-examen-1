@@ -22,6 +22,15 @@ class WebsitesController extends Controller
     }
 
     /**
+     * Get all websites data
+     */
+    public function getDWebsites()
+    {
+        $websites = Website::all()->where('deleted_at' , '=', !null);
+        return view('admin.websites.deleted', compact('websites'));
+    }
+
+    /**
      * Get all website data with the same ID as the variable
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -105,5 +114,12 @@ class WebsitesController extends Controller
         Website::whereId($id)->update(['deleted_at' => Carbon::now()]);
 
         return redirect()->route('websites')->with('message', 'Succesfully deleted');
+    }
+
+    public function undoWebsites($id)
+    {
+        Website::whereId($id)->update(['deleted_at' => null]);
+
+        return redirect()->route('dwebsites')->with('message', 'Succesfully deleted');
     }
 }

@@ -11,8 +11,8 @@
     <a href="{{url('websites/createPage')}}">
         <button class="btn btn-primary">Create</button>
     </a>
-    <a href="{{url('websites/deleted')}}">
-        <button class="btn btn-secondary">Deleted Websites</button>
+    <a href="{{url('websites')}}">
+        <button class="btn btn-secondary">Websites</button>
     </a>
 </div>
 <table class="table">
@@ -40,22 +40,22 @@
             <!-- If the active value is 1 display "Yes". If its not display No-->
             @if($website->active == 1)
                 <td>{{__('Yes')}}</td>
-                @else
+            @else
                 <td>{{__('No')}}</td>
-                @endif
+            @endif
             <td>
                 <a href="{{url('websites/'.$website->id.'/view')}}">
-                <button value="{{$website->id}}" class="btn btn-info">View</button>
+                    <button value="{{$website->id}}" class="btn btn-info">View</button>
                 </a>
             </td>
             <td>
                 <a href="{{url('websites/'.$website->id.'/updatePage')}}">
-                <button value="{{$website->id}}" class="btn btn-warning">Update</button>
+                    <button value="{{$website->id}}" class="btn btn-warning">Update</button>
                 </a>
             </td>
             <td>
-                <a href="{{url('websites/'.$website->id.'/delete')}}">
-                <button value="{{$website->id}}" id="delete" name="{{$website->name}}" onclick="ConfirmDelete()" class="btn btn-danger">Delete</button>
+                <a href="{{url('websites/'.$website->id.'/undo')}}">
+                    <button value="{{$website->id}}" id="delete" name="{{$website->name}}" onclick="ConfirmDelete()" class="btn btn-success">Un Do</button>
                 </a>
             </td>
         </tr>
@@ -68,7 +68,7 @@
     function ConfirmDelete()
     {
         var webName = document.getElementById('delete').name;
-        var x = confirm("Are you sure you want to delete " + webName+"?");
+        var x = confirm("Are you sure you want to un do " + webName+"?");
         if (x)
             return true;
         else
