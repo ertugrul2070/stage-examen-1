@@ -87,8 +87,7 @@ class ZonesController extends Controller
      */
     public function deleteZones($id)
     {
-        $zoneId = Zone::find($id);
-        Website::whereId($zoneId->website_id)->update(['deleted_at' => Carbon::now()]);
+        Zone::destroy($id);
 
         return redirect()->route('zones')->with('message', 'Succesfully deleted');
     }

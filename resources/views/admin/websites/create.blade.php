@@ -1,4 +1,5 @@
 @include('layout.app')
+@include('validationAlert')
 <!-- Form create -->
 <form class="text-center border border-light p-5" name="create" method="post" action="{{url('/websites/store')}}" >
     {{ csrf_field() }}

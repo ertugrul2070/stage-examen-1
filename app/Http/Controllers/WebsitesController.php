@@ -28,8 +28,7 @@ class WebsitesController extends Controller
      */
     public function getWebsite($id)
     {
-        $website = Website::find($id)->where('deleted_at', '=', null);
-
+        $website = Website::find($id);
         return view('admin.websites.view', compact('website'));
     }
 
@@ -50,6 +49,13 @@ class WebsitesController extends Controller
      */
     public function storeWebsites(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|unique:websites|max:255',
+            'url' => 'required|unique:websites',
+            'user_id' => 'required',
+            'active' => 'required',
+        ]);
+
         $requestData = $request->except('_token', 'create');
         Website::insert($requestData);
 
@@ -63,7 +69,7 @@ class WebsitesController extends Controller
      */
     public function updatePageWebsites($id)
     {
-       $website = Website::find($id)->where('deleted_at', '=', null);
+       $website = Website::find($id);
        $users = User::all();
 
         return view('admin.websites.update', compact('website', 'users'));

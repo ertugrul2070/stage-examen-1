@@ -1,4 +1,5 @@
 @include('layout.app')
+@include('validationAlert')
 <!-- Form create -->
 <form class="text-center border border-light p-5" name="update" method="post" action="{{url('/websites/'.$website->id.'/update')}}" >
     {{ method_field('PUT') }}

@@ -50,10 +50,10 @@ Route::get('/zones/{id}/delete', 'ZonesController@deleteZones');
 Route::get('/vasttags', 'VasttagsController@getvasttags')->name('vasttags');
 Route::get('/vasttags/{id}/view', 'VasttagsController@getvasttag');
 Route::get('/vasttags/createPage', 'VasttagsController@storePagevasttags');
-Route::post('/vasttags/store', 'VasttagsController@storevasttags');
-Route::get('/vasttags/{id}/updatePage', 'VasttagsController@updatePagevasttags');
-Route::put('/vasttags/{id}/update', 'VasttagsController@updatevasttags');
-Route::get('/vasttags/{id}/delete', 'VasttagsController@deletevasttags');
+Route::post('/vasttags/store', 'VasttagsController@storeVasttags');
+Route::get('/vasttags/{id}/updatePage', 'VasttagsController@updatePageVasttags');
+Route::put('/vasttags/{id}/update', 'VasttagsController@updateVasttags');
+Route::get('/vasttags/{id}/delete', 'VasttagsController@deleteVasttags');
 /**
  * End of all vasttags routes
  */

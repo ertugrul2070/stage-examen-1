@@ -1,33 +1,27 @@
 @include('layout.app')
+@include('validationAlert')
 <!-- Form create -->
-<form class="text-center border border-light p-5" name="create" method="post" action="{{url('/websites/store')}}" >
+<form class="text-center border border-light p-5" name="create" method="post" action="{{url('/vasttags/store')}}" >
     {{ csrf_field() }}
 
     <p class="h4 mb-4">Create website</p>
 
-    <!-- Name -->
-    <input type="text" id="websiteName" name="name" class="form-control mb-4" placeholder="Name">
+    <!-- Provider name -->
+    <input type="text" id="vasttagName" name="provider_name" class="form-control mb-4" placeholder="Provider name">
 
     <!-- Url -->
-    <input type="url" id="websiteUrl" name="url" class="form-control mb-4" placeholder="Url">
+    <input type="url" id="vasttagUrl" name="url" class="form-control mb-4" placeholder="Url">
 
-    <!-- User -->
-    <select id="websiteUser" class="form-control mb-4" name="user_id">
+    <!-- Zone -->
+    <select id="VasttagsZones" class="form-control mb-4" name="zone_id">
         <option>Select...</option>
-        @foreach($users as $user)
-            <option value="{{$user->id}}">{{$user->name}}</option>
+        @foreach($zones as $zone)
+            <option value="{{$zone->id}}">{{$zone->div_tag}}</option>
         @endforeach
     </select>
 
-    <!-- Active -->
-    <select id="websiteActive" class="form-control mb-4" name="active">
-        <option>Select...</option>
-        <option value="1">{{(__('Yes'))}}</option>
-        <option value="0">{{__('No')}}</option>
-    </select>
-
     <!-- Create button -->
-    <a href="{{url('/websites/store')}}">
+    <a href="{{url('/vasttags/store')}}">
     <button class="btn btn-info btn-block my-4" type="submit" name="create">Create</button>
     </a>
 

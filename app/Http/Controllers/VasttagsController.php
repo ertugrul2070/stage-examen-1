@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vasttag;
+use App\Website;
 use App\Zone;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -14,7 +15,8 @@ class VasttagsController extends Controller
      */
     public function getVasttags()
     {
-        $vasttags = Vasttag::all()->where('website.deleted_at', '=', null);
+        $vasttags = Vasttag::all()->where('zone.website.deleted_at', '=', null);
+
         return view('admin.vasttags.overview', compact('vasttags'));
     }
 
@@ -60,11 +62,10 @@ class VasttagsController extends Controller
      */
     public function updatePageVasttags($id)
     {
-        $vasttags = Vasttag::find($id);
+        $vasttag = Vasttag::find($id);
+        $zones = Zone::all()->where('website.deleted_at', '=', null);
 
-        $zones = Vasttag::all()->where('deleted_at', '=', null);
-
-        return view('admin.vasttags.update', compact('vasttags', 'zones'));
+        return view('admin.vasttags.update', compact('vasttag', 'zones'));
     }
 
     /**
@@ -88,9 +89,7 @@ class VasttagsController extends Controller
      */
     public function deleteVasttags($id)
     {
-        $vastId = Vasttag::find($id);
-
-        Vasttag::whereId($zoneId->website_id)->update(['deleted_at' => Carbon::now()]);
+        Vasttag::destroy($id);
 
         return redirect()->route('vasttags')->with('message', 'Succesfully deleted');
     }
