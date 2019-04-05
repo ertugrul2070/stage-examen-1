@@ -14,7 +14,7 @@
 
     <!-- Zone -->
     <select id="VasttagsZones" class="form-control mb-4" name="zone_id">
-        <option>Select...</option>
+        <option value="">Select...</option>
         @foreach($zones as $zone)
             <option value="{{$zone->id}}">{{$zone->div_tag}}</option>
         @endforeach

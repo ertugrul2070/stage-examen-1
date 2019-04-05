@@ -14,7 +14,7 @@
 
     <!-- User -->
     <select id="websiteUser" class="form-control mb-4" name="user_id">
-        <option>Select...</option>
+        <option value="">Select...</option>
         @foreach($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
         @endforeach
@@ -22,7 +22,7 @@
 
     <!-- Active -->
     <select id="websiteActive" class="form-control mb-4" name="active">
-        <option>Select...</option>
+        <option value="">Select...</option>
         <option value="1">{{(__('Yes'))}}</option>
         <option value="0">{{__('No')}}</option>
     </select>

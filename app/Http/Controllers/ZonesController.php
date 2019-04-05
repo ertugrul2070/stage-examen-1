@@ -47,6 +47,11 @@ class ZonesController extends Controller
      */
     public function storeZones(Request $request)
     {
+        $request->validate([
+            'div_tag' => 'required|max:255',
+            'website_id' => 'required',
+        ]);
+
         $requestData = $request->except('_token', 'create');
         Zone::insert($requestData);
 
@@ -74,6 +79,10 @@ class ZonesController extends Controller
      */
     public function updateZones($id, Request $request)
     {
+        $request->validate([
+            'div_tag' => 'required|max:255',
+            'website_id' => 'required',
+        ]);
         $requestData = $request->except('_method','_token', 'update');
         Zone::whereId($id)->update($requestData);
 

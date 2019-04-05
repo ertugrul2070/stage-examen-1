@@ -49,6 +49,11 @@ class VasttagsController extends Controller
      */
     public function storeVasttags(Request $request)
     {
+        $request->validate([
+            'provider_name' => 'required|unique:vasttags|max:255',
+            'url' => 'required|unique:vasttags',
+            'zone_id' => 'required',
+        ]);
         $requestData = $request->except('_token', 'create');
         Vasttag::insert($requestData);
 
@@ -76,6 +81,11 @@ class VasttagsController extends Controller
      */
     public function updateVasttags($id, Request $request)
     {
+        $request->validate([
+            'provider_name' => 'required|unique:vasttags,provider_name,'.$id.'|max:400',
+            'url' => 'required|unique:vasttags,url,'.$id.'|max:400',
+            'zone_id' => 'required',
+        ]);
         $requestData = $request->except('_method','_token', 'update');
         Vasttag::whereId($id)->update($requestData);
 

@@ -8,6 +8,9 @@
     <p class="h4 mb-4">Update website</p>
 
     <!-- Name -->
+    <input type="hidden" name="id" value="{{$website->id}}">
+
+    <!-- Name -->
     <input type="text" id="websiteName" name="name" class="form-control mb-4" value="{{$website->name}}">
 
     <!-- Url -->

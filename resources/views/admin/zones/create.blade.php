@@ -1,4 +1,5 @@
 @include('layout.app')
+@include('validationAlert')
 <!-- Form create -->
 <form class="text-center border border-light p-5" name="create" method="post" action="{{url('/zones/store')}}" >
     {{ csrf_field() }}
@@ -10,7 +11,7 @@
 
     <!-- Websites -->
     <select id="zonesUser" class="form-control mb-4" name="website_id">
-        <option>Select...</option>
+        <option value="">Select...</option>
         @foreach($websites as $websites)
             <option value="{{$websites->id}}">{{$websites->url}}</option>
         @endforeach

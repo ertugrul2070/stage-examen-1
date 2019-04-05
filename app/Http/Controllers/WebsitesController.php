@@ -49,7 +49,7 @@ class WebsitesController extends Controller
      */
     public function storeWebsites(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|unique:websites|max:255',
             'url' => 'required|unique:websites',
             'user_id' => 'required',
@@ -84,6 +84,12 @@ class WebsitesController extends Controller
     public function updateWebsites($id, Request $request)
     {
         $requestData = $request->except('_method','_token', 'update');
+        $request->validate([
+            'name' => 'required|unique:websites,name,'.$id.'|max:400',
+            'url' => 'required|unique:websites,url,'.$id.'|max:400',
+            'user_id' => 'required',
+            'active' => 'required',
+        ]);
         Website::whereId($id)->update($requestData);
 
         return redirect()->route('websites')->with('message', 'Succesfully saved');
