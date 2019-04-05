@@ -26,6 +26,7 @@
     </tr>
     </thead>
     <tbody>
+    <!--Start foreach loop-->
     <!--Retrive all the data and show data in table-->
     @foreach($websites as $website)
         <tr>
@@ -56,6 +57,7 @@
             </td>
         </tr>
     @endforeach
+    <!--End foreach loop-->
     </tbody>
 </table>
 

@@ -1,41 +1,27 @@
 @include('layout.app')
 <!-- Form create -->
-<form class="text-center border border-light p-5" name="update" method="post" action="{{url('/websites/'.$website->id.'/update')}}" >
+<form class="text-center border border-light p-5" name="update" method="post" action="{{url('/zones/'.$zone->id.'/update')}}" >
     {{ method_field('PUT') }}
     {{ csrf_field() }}
 
-    <p class="h4 mb-4">Update website</p>
+    <p class="h4 mb-4">Update zone</p>
 
-    <!-- Name -->
-    <input type="text" id="websiteName" name="name" class="form-control mb-4" value="{{$website->name}}">
+    <!-- div_tag -->
+    <input type="text" id="zoneDivTag" name="div_tag" class="form-control mb-4" value="{{$zone->div_tag}}">
 
-    <!-- Url -->
-    <input type="url" id="websiteUrl" name="url" class="form-control mb-4" value="{{$website->url}}">
-
-    <!-- User -->
-    <select id="websiteUser" class="form-control mb-4" name="user_id">
-        @foreach($users as $user)
-            @if($website->user_id === $user->id)
-                <option selected value="{{$user->id}}">{{$user->name}}</option>
+    <!-- websites -->
+    <select id="zoneWebsites" class="form-control mb-4" name="website_id">
+        @foreach($websites as $website)
+            @if($zone->website_id === $website->id)
+                <option selected value="{{$website->id}}">{{$website->name}}</option>
             @else
-                <option value="{{$user->id}}">{{$user->name}}</option>
+                <option value="{{$website->id}}">{{$website->name}}</option>
             @endif
         @endforeach
     </select>
 
-    <!-- Active -->
-    <select id="websiteActive" class="form-control mb-4" name="active">
-        @if($website->active === 1)
-            <option selected value="{{$website->active}}">{{"Yes"}}</option>
-            <option value="0">{{(__('No'))}}</option>
-        @else
-            <option selected value="{{$website->active}}">{{"No"}}</option>
-            <option value="1">{{__('Yes')}}</option>
-        @endif
-    </select>
-
     <!-- Update button -->
-    <a href="{{url('/websites/'.$website->id.'/update')}}">
+    <a href="{{url('/zones/'.$zone->id.'/update')}}">
         <button class="btn btn-info btn-block my-4" type="submit" name="update">Update</button>
     </a>
 

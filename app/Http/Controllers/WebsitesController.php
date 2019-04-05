@@ -17,7 +17,7 @@ class WebsitesController extends Controller
      */
     public function getWebsites()
     {
-        $websites = Website::all();
+        $websites = Website::all()->where('deleted_at' , '=', null);
         return view('admin.websites.overview', compact('websites'));
     }
 
@@ -28,7 +28,7 @@ class WebsitesController extends Controller
      */
     public function getWebsite($id)
     {
-        $website = Website::find($id);
+        $website = Website::find($id)->where('deleted_at', '=', null);
 
         return view('admin.websites.view', compact('website'));
     }
@@ -63,7 +63,7 @@ class WebsitesController extends Controller
      */
     public function updatePageWebsites($id)
     {
-       $website = Website::find($id);
+       $website = Website::find($id)->where('deleted_at', '=', null);
        $users = User::all();
 
         return view('admin.websites.update', compact('website', 'users'));
@@ -90,7 +90,7 @@ class WebsitesController extends Controller
      */
     public function deleteWebsites($id)
     {
-        Website::destroy($id);
+        Website::whereId($id)->update(['deleted_at' => Carbon::now()]);
 
         return redirect()->route('websites')->with('message', 'Succesfully deleted');
     }

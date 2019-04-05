@@ -1,33 +1,23 @@
 @include('layout.app')
 <!-- Form create -->
-<form class="text-center border border-light p-5" name="create" method="post" action="{{url('/websites/store')}}" >
+<form class="text-center border border-light p-5" name="create" method="post" action="{{url('/zones/store')}}" >
     {{ csrf_field() }}
 
-    <p class="h4 mb-4">Create website</p>
+    <p class="h4 mb-4">Create zones</p>
 
-    <!-- Name -->
-    <input type="text" id="websiteName" name="name" class="form-control mb-4" placeholder="Name">
+    <!-- Div tag -->
+    <input type="text" id="zonesUrl" name="div_tag" class="form-control mb-4" placeholder="div tag">
 
-    <!-- Url -->
-    <input type="url" id="websiteUrl" name="url" class="form-control mb-4" placeholder="Url">
-
-    <!-- User -->
-    <select id="websiteUser" class="form-control mb-4" name="user_id">
+    <!-- Websites -->
+    <select id="zonesUser" class="form-control mb-4" name="website_id">
         <option>Select...</option>
-        @foreach($users as $user)
-            <option value="{{$user->id}}">{{$user->name}}</option>
+        @foreach($websites as $websites)
+            <option value="{{$websites->id}}">{{$websites->url}}</option>
         @endforeach
     </select>
 
-    <!-- Active -->
-    <select id="websiteActive" class="form-control mb-4" name="active">
-        <option>Select...</option>
-        <option value="1">{{(__('Yes'))}}</option>
-        <option value="0">{{__('No')}}</option>
-    </select>
-
     <!-- Create button -->
-    <a href="{{url('/websites/store')}}">
+    <a href="{{url('/zones/store')}}">
     <button class="btn btn-info btn-block my-4" type="submit" name="create">Create</button>
     </a>
 

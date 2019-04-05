@@ -32,30 +32,32 @@ Route::get('/websites/{id}/delete', 'WebsitesController@deleteWebsites');
 /**
  * All routes for the zones crud system
  */
-Route::get('/websites', 'WebsitesController@getWebsites')->name('websites');
-Route::get('/websites/{id}/view', 'WebsitesController@getWebsite');
-Route::get('/websites/createPage', 'WebsitesController@storePageWebsites');
-Route::post('/websites/store', 'WebsitesController@storeWebsites');
-Route::get('/websites/{id}/updatePage', 'WebsitesController@updatePageWebsites');
-Route::put('/websites/{id}/update', 'WebsitesController@updateWebsites');
-Route::get('/websites/{id}/delete', 'WebsitesController@deleteWebsites');
+Route::get('/zones', 'ZonesController@getZones')->name('zones');
+Route::get('/zones/{id}/view', 'ZonesController@getZone');
+Route::get('/zones/createPage', 'ZonesController@storePageZones');
+Route::post('/zones/store', 'ZonesController@storeZones');
+Route::get('/zones/{id}/updatePage', 'ZonesController@updatePageZones');
+Route::put('/zones/{id}/update', 'ZonesController@updateZones');
+Route::get('/zones/{id}/delete', 'ZonesController@deleteZones');
 /**
  * End of all zones routes
  */
 
+
 /**
  * All routes for the vasttags crud system
  */
-Route::get('/websites', 'WebsitesController@getWebsites')->name('websites');
-Route::get('/websites/{id}/view', 'WebsitesController@getWebsite');
-Route::get('/websites/createPage', 'WebsitesController@storePageWebsites');
-Route::post('/websites/store', 'WebsitesController@storeWebsites');
-Route::get('/websites/{id}/updatePage', 'WebsitesController@updatePageWebsites');
-Route::put('/websites/{id}/update', 'WebsitesController@updateWebsites');
-Route::get('/websites/{id}/delete', 'WebsitesController@deleteWebsites');
+Route::get('/vasttags', 'VasttagsController@getvasttags')->name('vasttags');
+Route::get('/vasttags/{id}/view', 'VasttagsController@getvasttag');
+Route::get('/vasttags/createPage', 'VasttagsController@storePagevasttags');
+Route::post('/vasttags/store', 'VasttagsController@storevasttags');
+Route::get('/vasttags/{id}/updatePage', 'VasttagsController@updatePagevasttags');
+Route::put('/vasttags/{id}/update', 'VasttagsController@updatevasttags');
+Route::get('/vasttags/{id}/delete', 'VasttagsController@deletevasttags');
 /**
  * End of all vasttags routes
  */
+
 
 Auth::routes();
 
