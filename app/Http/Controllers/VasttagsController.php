@@ -42,7 +42,7 @@ class VasttagsController extends Controller
     }
 
     /**
-     * Store a newly created recourse in database
+     * Store a newly created resource in database
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -74,7 +74,7 @@ class VasttagsController extends Controller
     }
 
     /**
-     * Update an existing recourse in database
+     * Update an existing resource in database
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -93,7 +93,7 @@ class VasttagsController extends Controller
     }
 
     /**
-     * Delete all recourse data with the same ID as the variable.
+     * Delete all resource data with the same ID as the variable.
      * @param int $id
      * @return \Illuminate\Http\Response
      */
