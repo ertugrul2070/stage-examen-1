@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+//  $color-primary-palette : (
+//      'primary': #011B67,
+//      'secondary': #007BFF,
+//      'tertiary': #898592,
+//      'success': #30C974,
+//      'warning': #D0BB2B,
+//      'alert': #C7182E,
+//  );
+
+//  $color-blackwhite-palette: (
+//      'white': #FFFFFF,
+//      'lightest' : #F8FAFC,
+//      'lighter' : #F1F5F8,
+//      'light' : #DAE1E7,
+//      'base' :#898592,
+//      'dark' :#8795A1,
+//      'darker' :#606F7B,
+//      'darkest' :#3D4852,
+//      'black' : #22292F
+//  );
+
+$color-primary: map_get($color-primary-palette, 'primary');
+$color-secondary: map_get($color-primary-palette, 'secondary');
+$color-tertiary: map_get($color-primary-palette, 'tertiary');
+
+$color-white: map_get($color-blackwhite-palette, 'white');
+$color-black: map_get($color-blackwhite-palette, 'black');

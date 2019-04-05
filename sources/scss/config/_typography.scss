@@ -1,0 +1,72 @@
+
+// anchors (links)
+//  $links-color : map_get($color-primary-palette, 'primary');
+//  $links-color-hover : scale-color($links-color, $lightness : -14%);
+//  $links-text-decoration : none;
+//  $links-text-decoration-hover : none;
+
+// blockquotes
+//  $blockquote-color: map_get($color-blackwhite-palette, 'black');
+//  $blockquote-padding: rem-calc(9 20 0 19);
+//  $blockquote-border: 1px solid map_get($color-blackwhite-palette, 'black');
+
+
+// Headings (h1 - h6)
+//  $header-font-family : $body-font-family;
+//  $header-font-weight: $global-weight-normal;
+//  $header-font-style: normal;
+//  $header-color: inherit;
+//  $header-lineheight: 1.4;
+//  $header-margin-bottom: 0.5rem;
+//  $header-text-rendering: optimizeLegibility;
+//  $header-styles: (
+//      'xs': (
+//          'h1': ('font-size': 24),
+//          'h2': ('font-size': 20),
+//          'h3': ('font-size': 19),
+//          'h4': ('font-size': 18),
+//          'h5': ('font-size': 17),
+//          'h6': ('font-size': 16),
+//      ),
+//      'md': (
+//          'h1': ('font-size': 48),
+//          'h2': ('font-size': 40),
+//          'h3': ('font-size': 31),
+//          'h4': ('font-size': 25),
+//          'h5': ('font-size': 20),
+//          'h6': ('font-size': 16),
+//      ),
+//  );
+
+// small tag font-size
+//  $small-font-size: 80%;
+//  $header-small-font-color: map_get($color-blackwhite-palette, 'base');
+
+// hr tag
+//  $hr-width: 100%;
+//  $hr-border: 1px solid map_get($color-blackwhite-palette, 'black');
+//  $hr-margin: rem-calc(20) auto;
+
+// Keystrokes
+//  $keystroke-font: $font-stack-consolas;
+//  $keystroke-color: map_get($color-blackwhite-palette, 'black');
+//  $keystroke-background: map_get($color-blackwhite-palette, 'white');
+//  $keystroke-padding: rem-calc(2 4 0);
+//  $keystroke-radius: $global-radius;
+
+// Lists
+//  $list-lineheight: $paragraph-lineheight;
+//  $list-margin-bottom: $paragraph-margin-bottom;
+//  $list-style-type: disc;
+//  $list-style-position: outside;
+//  $list-side-margin: rem-calc(20);
+//  $list-nested-side-margin: rem-calc(20);
+
+//  $defnlist-margin-bottom: rem-calc(16);
+//  $defnlist-term-weight: $global-weight-bold;
+//  $defnlist-term-margin-bottom: rem-calc(4);
+
+// Paragraphs
+//  $paragraph-lineheight: 1.6;
+//  $paragraph-margin-bottom: rem-calc(16);
+//  $paragraph-text-rendering: optimizeLegibility;

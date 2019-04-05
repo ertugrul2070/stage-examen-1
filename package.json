@@ -1,0 +1,44 @@
+{
+    "name": "kryptonite-laravel",
+    "version": "1.0.0",
+    "description": "E-heroes Kryptonite pack for Laravel",
+    "main": "index.js",
+    "repository": "git@bitbucket.org:e-heroes/kryptonite-laravel.git",
+    "author": "Jos Koomen <jos@e-heroes.nl>",
+    "license": "MIT",
+    "scripts": {
+        "dev": "yarn run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "yarn run development --watch",
+        "watch-poll": "yarn run watch --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "yarn run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "preinstall": "node -e \"if (process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Use yarn instead of npm')\""
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.0",
+        "@babel/preset-react": "^7.0.0",
+        "@joskoomen/scss-core": "^1.*",
+        "@joskoomen/scss-core-reset": "^1.*",
+        "@joskoomen/scss-grid": "^1.*",
+        "axios": "^0.18",
+        "browser-sync": "^2.26.3",
+        "browser-sync-webpack-plugin": "2.0.1",
+        "browserslist": "^4.3.5",
+        "cross-env": "^5.1",
+        "css-mqpacker": "^7.0.0",
+        "imagemin": "^6.0.0",
+        "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.5",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "7.*",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.27.1",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "jquery": "^3.3.1"
+    }
+}
