@@ -14,9 +14,9 @@
     <select id="zoneWebsites" class="form-control mb-4" name="website_id">
         @foreach($websites as $website)
             @if($zone->website_id === $website->id)
-                <option selected value="{{$website->id}}">{{$website->name}}</option>
+                <option selected value="{{$website->id}}">{{$website->name}}" | "{{str_limit($website->url,50)}}</option>
             @else
-                <option value="{{$website->id}}">{{$website->name}}</option>
+                <option value="{{$website->id}}">{{$website->name}}" | "{{str_limit($website->url,50)}}</option>
             @endif
         @endforeach
     </select>

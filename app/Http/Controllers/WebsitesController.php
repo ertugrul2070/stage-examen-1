@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Website;
+use App\Zone;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -112,6 +113,7 @@ class WebsitesController extends Controller
     public function deleteWebsites($id)
     {
         Website::whereId($id)->update(['deleted_at' => Carbon::now()]);
+
 
         return redirect()->route('websites')->with('message', 'Succesfully deleted');
     }

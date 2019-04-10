@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Vasttag;
 use App\Website;
 use App\Zone;
 use Carbon\Carbon;
@@ -96,6 +97,11 @@ class ZonesController extends Controller
      */
     public function deleteZones($id)
     {
+        $vastIds = Vasttag::all()->where('zone_id', '=', $id);
+        foreach ($vastIds as $vastId)
+        {
+            Vasttag::destroy($vastId->id);
+        }
         Zone::destroy($id);
 
         return redirect()->route('zones')->with('message', 'Succesfully deleted');

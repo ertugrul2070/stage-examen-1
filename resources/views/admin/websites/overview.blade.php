@@ -55,7 +55,7 @@
             </td>
             <td>
                 <a href="{{url('websites/'.$website->id.'/delete')}}">
-                <button value="{{$website->id}}" id="delete" name="{{$website->name}}" onclick="ConfirmDelete()" class="btn btn-danger">Delete</button>
+                <button onclick="ConfirmDelete()" value="{{$website->id}}" name="{{$website->name}}" class="btn btn-danger delete">Delete</button>
                 </a>
             </td>
         </tr>
@@ -67,11 +67,8 @@
 <script type="text/javascript">
     function ConfirmDelete()
     {
-        var webName = document.getElementById('delete').name;
-        var x = confirm("Are you sure you want to delete " + webName+"?");
-        if (x)
-            return true;
-        else
-            return false;
+        var webName = document.getElementsByClassName('delete').name;
+        if(!confirm("Are you sure you want to delete the website!"))
+            event.preventDefault();
     }
 </script>

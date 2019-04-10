@@ -55,11 +55,7 @@
 <script type="text/javascript">
     function ConfirmDelete()
     {
-        var zonName = document.getElementById('delete').name;
-        var x = confirm("Are you sure you want to delete " + zonName+"?");
-        if (x)
-            return true;
-        else
-            return false;
+        if(!confirm("Are you sure you want to delete the website!"))
+            event.preventDefault();
     }
 </script>

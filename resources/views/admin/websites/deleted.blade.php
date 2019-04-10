@@ -67,11 +67,7 @@
 <script type="text/javascript">
     function ConfirmDelete()
     {
-        var webName = document.getElementById('delete').name;
-        var x = confirm("Are you sure you want to un do " + webName+"?");
-        if (x)
-            return true;
-        else
-            return false;
+        if(!confirm("Are you sure you want to add the website!"))
+            event.preventDefault();
     }
 </script>

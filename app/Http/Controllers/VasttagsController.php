@@ -15,6 +15,7 @@ class VasttagsController extends Controller
      */
     public function getVasttags()
     {
+
         $vasttags = Vasttag::all()->where('zone.website.deleted_at', '=', null);
 
         return view('admin.vasttags.overview', compact('vasttags'));

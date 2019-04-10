@@ -12,8 +12,8 @@
     <!-- Websites -->
     <select id="zonesUser" class="form-control mb-4" name="website_id">
         <option value="">Select...</option>
-        @foreach($websites as $websites)
-            <option value="{{$websites->id}}">{{$websites->url}}</option>
+        @foreach($websites as $website)
+            <option value="{{$website->id}}">{{$website->name}}" | "{{str_limit($website->url,50)}}</option>
         @endforeach
     </select>
 

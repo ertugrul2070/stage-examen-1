@@ -4,7 +4,7 @@
 <form class="text-center border border-light p-5" name="create" method="post" action="{{url('/vasttags/store')}}" >
     {{ csrf_field() }}
 
-    <p class="h4 mb-4">Create website</p>
+    <p class="h4 mb-4">Create vasttag</p>
 
     <!-- Provider name -->
     <input type="text" id="vasttagName" name="provider_name" class="form-control mb-4" placeholder="Provider name">
