@@ -106,7 +106,7 @@ class WebsitesController extends Controller
     }
 
     /**
-     * Delete all resource data with the same ID as the variable.
+     * Delete all resource data with the same ID as the variakble.
      * @param int $id
      * @return \Illuminate\Http\Response
      */
